@@ -1,3 +1,6 @@
+html *{
+    font-family: Arial;
+}
 #title{
     font-size: xx-large;
 }
@@ -5,4 +8,17 @@ header{
     position: relative;
     text-align: center;
 }
-  
+nav a{
+    text-decoration: none;
+    padding: 0.2em 0.6em;
+    border: 4px solid black;
+    display: inline-block;
+    background-color: lightgrey;
+}
+nav a:hover{
+    background-color: lightskyblue;
+    border-color: darkblue;
+}
+body{
+    background-color: lightcyan;
+}

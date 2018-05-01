@@ -19,9 +19,11 @@
         </legend>
         <p>
             <label for="username">User Name</label>
-            <input type="text" name="username" id="username" size="20" required="required" pattern="[a-zA-Z\d]{1,20}" />
+            <input type="text" name="username" id="username" size="20" required="required" pattern="[a-zA-Z\d]{1,50}" />
+            <br />
+            <br />
             <label for="password">Password</label>
-            <input type="text" name="password" id="password" size="20" required="required" pattern="[a-zA-Z\d]{1,20}" />
+            <input type="password" name="password" id="password" size="20" required="required" pattern="[a-zA-Z\d]{1,50}" />
         </p>
     </fieldset>
     <input type="submit" value="Log in" />

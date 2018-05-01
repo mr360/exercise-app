@@ -1,6 +1,5 @@
 <?php
 
-
     // Note: Function is expected to trim anything that isn't alphanumeric.
     // Keep it simple. Does limit passwords, but security isn't the most important thing at the moment.
     // Can be changed if we switch the DB to using some form of hashing for passwords.
@@ -32,19 +31,16 @@
         if (!$result) {
             echo "<p>Failed to log in. Please try again.</p>";
             redir(5, "login.php");
-            //header("location:login.php");
         } else {
             $retrieved = implode(mysqli_fetch_assoc($result));
             if ($password == $retrieved)
             {
                 setcookie("User", $username);
-                echo "<p>Welcome back $username.</p>";
+                echo "<p>Welcome back, $username.</p>";
                 redir(5, "index.php");
-                //header("location:index.php");
             } else {
                 echo "<p>Password incorrect. Please try again.</p>";
                 redir(5, "login.php");
-                //header("location:login.php");
             }
         }
         mysqli_free_result($result);
