@@ -1,5 +1,9 @@
 <?php
 
+
+    // Note: Function is expected to trim anything that isn't alphanumeric.
+    // Keep it simple. Does limit passwords, but security isn't the most important thing at the moment.
+    // Can be changed if we switch the DB to using some form of hashing for passwords.
     function sanitise($input)
     {
         $input = trim($input);
