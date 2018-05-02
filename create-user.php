@@ -39,7 +39,7 @@ function createacc($username, $password, $passwordconf, $email, $firstname, $las
 {
     passstrengthcheck($password, $strong);
     if ($passwordconf == $password && $strong){
-        $query = "insert into users (username, password, firstname, lastname, email) values ('$username', '$password', '$firstname', '$lastname', '$email')";
+        $query = "insert into users (username, password, firstname, lastname, email, phone) values ('$username', '$password', '$firstname', '$lastname', '$email', '$phone')";
         require_once("settings.php");
         $conn = @mysqli_connect($host,
             $user,
@@ -71,8 +71,9 @@ $firstname = sanitise($_POST["firstname"]);
 $lastname = sanitise($_POST["lastname"]);
 $password = sanitise($_POST["password"]);
 $passwordconf = sanitise($_POST["passwordconf"]);
+$phone = sanitise($_POST["phone"]);
 
-createacc($username, $password, $passwordconf, $email, $firstname, $lastname);
+createacc($username, $password, $passwordconf, $email, $firstname, $lastname, $phone);
 
 
 ?>

@@ -27,11 +27,15 @@
             <br />
             <br />
             <label for="firstname">First Name</label>
-            <input type="text" name="firstname" id="firstname" size="20" required="required" pattern="[a-zA-Z\d]{1,50}" />
+            <input type="text" name="firstname" id="firstname" size="20" required="required" pattern="[a-zA-Z]{1,50}" />
             <br />
             <br />
             <label for="lastname">Last Name</label>
-            <input type="text" name="lastname" id="lastname" size="20" required="required" pattern="[a-zA-Z\d]{1,50}" />
+            <input type="text" name="lastname" id="lastname" size="20" required="required" pattern="[a-zA-Z]{1,50}" />
+            <br />
+            <br />
+            <label for="phone">Phone Number</label>
+            <input type="text" name="phone" id="phone" size="20" required="required" pattern="[\d]{8,16}" />
             <br />
             <br />
             <label for="password">Password</label>
