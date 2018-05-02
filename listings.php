@@ -1,4 +1,4 @@
-<!--this listing page allow user to enter their details, these details then will be displayed in Viewing Listing page -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,13 +14,14 @@
 <body>
 
 <?php include 'header.php'; ?>
+<?php 
 
+?>
 <header>
   <h1>Details About Your Exercise </h1>
 </header>
 
-     
-       <form id="listing" method="post" action="viewListings.php" novalidate="novalidate">
+       <form id="listing" method="post" action="LoadListings.php" novalidate="novalidate">
               
             <fieldset id="details">
              <legend>Please enter your exercise details</legend>

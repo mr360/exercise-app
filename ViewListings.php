@@ -1,113 +1,26 @@
-<?php
-      
-   
-    function sanitise_input($data) 
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
 
-       
-        
-   function getExerciseData()
-   {
-        $exercise = $_POST["Exercise"];
-        $exercise = sanitise_input ($exercise);
-       // echo "<p>Exercise is $exercise</p>";
-        return $exercise;
+<!DOCTYPE html>
+<html lang="en">
 
-   }
-//echo "<p>Exercise is </p>".getExerciseData();
+<head>
+   <meta charset="utf-8" />
+   <meta name="listing" content="exercise details" />
+   <meta name="keywords" content="exercise, athletic ability, location" />
+   <meta name="author" content="Hiep Nguyen"  />
+   <link rel="stylesheet" href="styles/style.css" />
+   <title>View Listings</title>
+</head>
 
-    function getAthleticData()
-    {
-         $athletic = $_POST["Athletic"];
-        $athletic = sanitise_input ($athletic);
-        //echo "<p>Athletic is $athletic</p>";
-        return $athletic;
+<body>
 
-    }
-    // echo "<p>Athletic is </p>".getAthleticData();
-
-    function getLocation()
-    {
-        $location = $_POST["Location"];
-        $location = sanitise_input ($location);
-        //echo "<p>BlurbDetails is $blurbDetails</p>";
-        return $location;
-
-    }
-
-     function getBlurbDetails()
-    {
-        $blurbDetails = $_POST["blurbDetails"];
-        $blurbDetails = sanitise_input ($blurbDetails);
-        //echo "<p>BlurbDetails is $blurbDetails</p>";
-        return $blurbDetails;
-
-    }
-
-   
-
-    function loadData()
-    {
-        require("setting.php");
-       $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-        if (!$conn){
-            echo "<p>Database connection failure</p>";
-        } 
-        else
-        {
-        $sql_table="exerciseDetails";
-        $query = "select * from exerciseDetails";
-
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            $sqlString= "CREATE TABLE $sql_table(
-              
-               PostNumber AUTO_INCREMENT PRIMARY KEY,
-               create_time NULL DEFAULT CURRENT_TIMESTAMP,
-                Exercise VARCHAR(45),
-                Athletic VARCHAR(45),
-                Location VARCHAR(45),
-                BlurbDetails VARCHAR(100)
-            )";
-            $queryResult = @mysqli_query($conn, $sqlString);
-        }
-        else
-        {
-           // $postNumber = mysqli_insert_id($conn);
-            // echo "<p>post number is $postNumber</p>" ;
-            $exercise = getExerciseData();
-            $athletic = getAthleticData();
-            $location = getLocation();
-            $blurbDetails = getBlurbDetails();
-            
-            
-
-            $query = "insert into $sql_table (Exercise, Athletic, Location, BlurbDetails)  values ('$exercise', '$athletic', '$location', '$blurbDetails')";
-             $result = mysqli_query($conn, $query);
-            if(!$result)
-            {
-                echo "<p class=\"wrong\">Something wrong with", $query, "</p>";
-            }
-            
-        }
-           
-   // mysqli_free_result($result);
-    
-    }
-    mysqli_close($conn);
-}
+<?php include 'header.php'; ?>
 
 
-
-
-function displayData()
-{
-    require("setting.php");
+<header>
+  <h1>Details of Current Exercise </h1>
+</header>
+<?php 
+require("settings.php");
    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$conn)
     {
@@ -118,38 +31,54 @@ function displayData()
         $sql_table="exerciseDetails";
         $query = "select * from exerciseDetails";
         $result = mysqli_query($conn, $query);
+       
+
         if(!$result)
         {
              echo "<p>Something is wrong with", $query, "</p>";
-        } else
-        {
+        }
+        else
         
-                echo "<table border=\"1\">\n";
-                echo "<tr>\n"
-                ."<th scope=\"col\">Exercise</th>\n"
-                ."<th scope=\"col\">Athletic</th>\n"
-                ."<th scope=\"col\">Location</th>\n"
-                ."<th scope=\"col\">BlurbDetails</th>\n"
-                ."<th scope=\"col\">TimeStamp</th>\n"
-                
-                ."</tr>\n";
+        {
 
-                while ($row = mysqli_fetch_assoc($result)){
+
+            while ($row = mysqli_fetch_assoc($result)){
+              
+                echo "<table class = \"viewListingTable\">\n";
+                   // echo "<thread>\n";
                     echo "<tr>\n";
-                    echo "<td>",$row["Exercise"],"</td>\n";
-                    echo "<td>",$row["Athletic"],"</td>\n";
-                    echo "<td>",$row["Location"],"</td>\n";
-                    echo "<td>",$row["BlurbDetails"],"</td>\n";
+                        echo "<th scope=\"col\">Exercise</th>\n";
+                        echo "<th scope=\"col\">Athletic</th>\n";
+                        echo "<th scope=\"col\">Location</th>\n";
+                        echo "<th scope=\"col\"> </th>\n";
+
+                     echo "</tr>\n";
+                   //  echo "</thread>\n";
+                    // echo "<tfoot>\n";
+                        echo "<tr>\n";
+                         echo "<td>",$row["Exercise"],"</td>\n";
+                         echo "<td>",$row["Athletic"],"</td>\n";
+                        echo "<td>",$row["Location"],"</td>\n";
+                        echo "<td><button><a href=createMessage.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
+                     echo "</tr>\n";
+
+                      echo "<tr>\n";
+                      echo "<td colspan=\"3\">",$row["BlurbDetails"],"</td>\n";
                     echo "<td>",$row["create_time"],"</td>\n";
-
-                    echo "<td><button><a href=sendMessage.php>Send Message</a></button></td>\n";
-
-
-                
                     echo "</tr>\n";
+                   //  echo "</tfoot>\n";
+
+                    //echo "<tr>\n";
+                   // echo "<td colspan = \"4\" >",$row["BlurbDetails"],"</td>\n";
+                    // echo "</tr>\n";
+
+                   // echo "<td><button><a href=sendMessage.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
+                 
+
+                    echo "</table>\n";
 
             }
-            echo "</table>\n";
+            
             mysqli_free_result($result);
 
 
@@ -158,9 +87,16 @@ function displayData()
 mysqli_close($conn);
 }
 
-}
-loadData();
-displayData();
+ ?>
+  
 
 
-?>
+</body>
+
+
+
+
+
+
+   
+    
