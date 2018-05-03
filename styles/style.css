@@ -1,0 +1,20 @@
+/*
+
+author: Hiep Nguyen
+created: 1/5/2018
+last modified: 1/5/2018
+description: refer to viewlisting.php,
+*/
+
+
+table {
+margin: 8px;
+ border: 1px solid black;
+ width: 80%;
+ 
+}
+
+th, td {
+	text-align: center;
+}
+
