@@ -22,3 +22,13 @@ nav a:hover{
 body{
     background-color: lightcyan;
 }
+table {
+margin: 8px;
+ border: 1px solid black;
+ width: 80%;
+ 
+}
+
+th, td {
+	text-align: center;
+}
