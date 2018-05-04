@@ -59,7 +59,7 @@ require("settings.php");
                          echo "<td>",$row["Exercise"],"</td>\n";
                          echo "<td>",$row["Athletic"],"</td>\n";
                         echo "<td>",$row["Location"],"</td>\n";
-                        echo "<td><button><a href=createMessage.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
+                        echo "<td><button><a href=create-message.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
                      echo "</tr>\n";
 
                       echo "<tr>\n";
@@ -72,7 +72,7 @@ require("settings.php");
                    // echo "<td colspan = \"4\" >",$row["BlurbDetails"],"</td>\n";
                     // echo "</tr>\n";
 
-                   // echo "<td><button><a href=sendMessage.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
+                   // echo "<td><button><a href=send-message.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
                  
 
                     echo "</table>\n";

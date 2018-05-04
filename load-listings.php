@@ -118,7 +118,7 @@
                 echo "<p>Athletic Ability is: $athletic</p>";
                 echo "<p>Location is: $location</p>";
                 echo "<p>Other details is: $blurbDetails</p>";
-                echo "<button><a href=\"ViewListings.php\">Post Your Exercise</a></button>";
+                echo "<button><a href=\"view-listings.php\">Post Your Exercise</a></button>";
                 echo "<button><a href=\"index.php\">Cancel</a></button>";
         
             }

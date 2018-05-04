@@ -118,7 +118,7 @@ function createMessageData()
                 {
                     echo "<p>message to $mto content $message</p>";
                 
-                    echo "<button><a href=\"ViewListings.php\">Send Message</a></button>";
+                    echo "<button><a href=\"view-listings.php\">Send Message</a></button>";
           
                 }
 

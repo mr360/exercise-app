@@ -79,8 +79,8 @@ require("settings.php");
                           echo "<td>",$row["Athletic"],"</td>\n";
                           echo "<td>",$row["Location"],"</td>\n";
                           if ($row["status"] == "waiting") {
-                            echo "<td><p><button><a href='ViewMessages.php?cmd=accept&id=",$row["messageId"],"'>Accept and Display Phone</a></button></p>";
-                            echo "<p><button><a href='ViewMessages.php?cmd=decline&id=",$row["messageId"],"'>Decline</a></button></p></td>\n";
+                            echo "<td><p><button><a href='view-messages.php?cmd=accept&id=",$row["messageId"],"'>Accept and Display Phone</a></button></p>";
+                            echo "<p><button><a href='view-messages.php?cmd=decline&id=",$row["messageId"],"'>Decline</a></button></p></td>\n";
                           } else {
                             echo "<td><strong>",$row["status"],"</strong></td>";
                           }

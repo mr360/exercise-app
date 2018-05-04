@@ -21,7 +21,7 @@
   <h1>Details About Your Exercise </h1>
 </header>
 
-       <form id="listing" method="post" action="LoadListings.php" novalidate="novalidate">
+       <form id="listing" method="post" action="load-listings.php" novalidate="novalidate">
               
             <fieldset id="details">
              <legend>Please enter your exercise details</legend>

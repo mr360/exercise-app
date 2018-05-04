@@ -9,7 +9,7 @@
         	
         } else {
         	echo "Send message to post:",$_GET['postnumber'];	
-        	echo "<a href=sendMessage.php?cmd=accept&id=1>accept message</a>";	
+        	echo "<a href=send-message.php?cmd=accept&id=1>accept message</a>";	
         }*/
 
         require("settings.php");
@@ -50,7 +50,7 @@
                          echo "<td>",$row["Exercise"],"</td>\n";
                          echo "<td>",$row["Athletic"],"</td>\n";
                         echo "<td>",$row["Location"],"</td>\n";
-                        echo "<td><button><a href=sendMessage.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
+                        echo "<td><button><a href=send-message.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
                      echo "</tr>\n";
 
                       echo "<tr>\n";
@@ -63,7 +63,7 @@
                    // echo "<td colspan = \"4\" >",$row["BlurbDetails"],"</td>\n";
                     // echo "</tr>\n";
 
-                   // echo "<td><button><a href=sendMessage.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
+                   // echo "<td><button><a href=send-message.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
                  
 
                     echo "</table>\n";
