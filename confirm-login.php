@@ -33,7 +33,8 @@
             redir(5, "login.php");
         } else {
             $retrieved = implode(mysqli_fetch_assoc($result));
-            if ($password == $retrieved)
+            $hash = hash('sha512', $password);
+            if ($hash == $retrieved)
             {
                 setcookie("User", $username);
                 echo "<p>Welcome back, $username.</p>";

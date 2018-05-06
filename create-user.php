@@ -39,7 +39,8 @@ function createacc($username, $password, $passwordconf, $email, $firstname, $las
 {
     passstrengthcheck($password, $strong);
     if ($passwordconf == $password && $strong){
-        $query = "insert into users (username, password, firstname, lastname, email, phone) values ('$username', '$password', '$firstname', '$lastname', '$email', '$phone')";
+        $hash = hash('sha512', $password);
+        $query = "insert into users (username, password, firstname, lastname, email, phone) values ('$username', '$hash', '$firstname', '$lastname', '$email', '$phone')";
         require_once("settings.php");
         $conn = @mysqli_connect($host,
             $user,
