@@ -1,20 +1,352 @@
-/*
+html *{
+    font-family: Arial;
+}
+#title{
+    font-size: xx-large;
+}
+header{
+    position: relative;
+    text-align: center;
+}
+nav a{
+    text-decoration: none;
+    padding: 0.2em 0.6em;
+    border: 4px solid black;
+    display: inline-block;
+    background-color: lightgrey;
+}
+nav a:hover{
+    background-color: lightskyblue;
+    border-color: darkblue;
+}
+body{
+    background-color: lightcyan;
+}
 
-author: Hiep Nguyen
-created: 1/5/2018
-last modified: 1/5/2018
-description: refer to viewlisting.php,
+button {border: 2px inset blue;
+        margin: 0.5em;
+        padding: 0.5em;
+        width: 10em;
+        height: 3em;
+        background: lightblue;
+        font-size: 0.8 em;}
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
 */
 
+@media (min-width: 1281px) {
+  
+  .sec1{
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 3 em;
+    margin: 1em;
+    width: 80%
 
-table {
-margin: 8px;
- border: 1px solid black;
- width: 80%;
- 
+  }
+.div1{
+    border-right: 1px, solid;
+    float: left;
+    width: 12%;
+    text-align: center;
+}
+.div2{
+    border-right: 1px, solid;
+    float: left;
+    width: 12%;
+    text-align: center;
+}
+.div3{
+    border-right: 1px, solid;
+    float: left;
+    width: 12%;
+    text-align: center;
+}
+.div4{
+    border-right: 1px, solid;
+    float: left;
+    width: 12%;
+    text-align: center;
+}
+.div5{
+    border-right: 1px, solid;
+    float: left;
+    width: 12%;
+    text-align: center;
 }
 
-th, td {
-	text-align: center;
+.div6{
+    float: left;
+    width: 28%;
+    text-align: center;
 }
+.div7{
+    clear: both;
+    width: 70%;
+    padding: 3 em;
+    margin: 2em;
+    
+}
+  
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) {
+  
+  .sec1{
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 3 em;
+    margin: 1em;
+    width: 80%
+
+  }
+.div1{
+    border-right: 1px, solid;
+    border-right: 1px, solid;
+    float: left;
+    width: 12%;
+    text-align: center;
+}
+.div2{
+    border-right: 1px, solid;
+    float: left;
+    width: 12%;
+    text-align: center;
+}
+.div3{
+    border-right: 1px, solid;
+    float: left;
+    width: 12%;
+    text-align: center;
+}
+.div4{
+    border-right: 1px, solid;
+    float: left;
+    width: 12%;
+    text-align: center;
+}
+.div5{
+    border-right: 1px, solid;
+    float: left;
+    width: 12%;
+    text-align: center;
+}
+
+.div6{
+    float: left;
+    width: 28%;
+    text-align: center;
+}
+.div7{
+    clear: both;
+    width: 70%;
+    padding: 3 em;
+    margin: 2em;
+    
+}
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  .sec1{
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 3 em;
+    margin: 1em;
+    width: 90%
+
+  }
+.div1{
+    border-right: 1px, solid;
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+.div2{
+    border-right: 1px, solid;
+    clear: right;
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+.div3{
+    border-right: 1px, solid;
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+.div4{
+    border-right: 1px, solid;
+    float: left;
+    width: 14%;
+    text-align: center;
+}
+.div5{
+    border-right: 1px, solid;
+    float: left;
+    width: 14%;
+    text-align: center;
+}
+
+.div6{
+    float: right;
+    width: 36%;
+    text-align: center;
+    height: 40%;
+
+}
+.div7{
+    width: 36%;
+    margin: 2em;
+    height: 40%;
+    
+}
+  
+}
+
+
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  .sec1{
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 3 em;
+    margin: 1em;
+    width: 95%
+
+  }
+.div1{
+    border-right: 1px, solid;
+    float: left;
+    width: 31%;
+    text-align: center;
+}
+.div2{
+    border-right: 1px, solid;
+    clear: right;
+    float: left;
+    width: 31%;
+    text-align: center;
+}
+.div3{
+    border-right: 1px, solid;
+    float: left;
+    width: 31%;
+    text-align: center;
+}
+.div4{
+    border-right: 1px, solid;
+    border-right: 1px, solid;
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.div5{
+    border-right: 1px, solid;
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.div6{
+    float: left;
+    width: 40%;
+    text-align: center;
+}
+.div7{
+    clear: both;
+    width: 91%;
+    padding: 3 em;
+    margin: 2em;
+    
+}
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media screen and (max-width: 480px) {
+  
+  .sec1{
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 3 em;
+    margin: 1em;
+    width: 96%
+
+  }
+.div1{
+    border-right: 1px, solid;
+    float: left;
+    width: 46%;
+    text-align: center;
+}
+.div2{
+    border-right: 1px, solid;
+    float: left;
+    width: 46%;
+    text-align: center;
+}
+.div3{
+    border-right: 1px, solid;
+    float: left;
+    width: 45%;
+    text-align: center;
+}
+.div4{
+    border-right: 1px, solid;
+    float: left;
+    width: 22%;
+    text-align: center;
+}
+.div5{
+    border-right: 1px, solid;
+    float: left;
+    width: 22%;
+    text-align: center;
+}
+
+.div6{
+    float: left;
+    width: 93%;
+    text-align: center;
+     padding: 3 em;
+    margin: 2em;
+}
+.div7{
+    clear: both;
+    width: 93%;
+    padding: 3 em;
+    margin: 2em;
+    
+}
+  
+}
+
+
+
+
 
