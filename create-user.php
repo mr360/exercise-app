@@ -9,10 +9,15 @@ function sanitise($input)
     return $input;
 }
 
-function redir($time, $location)
+function redir($message, $location)
 {
-    sleep($time);
-    header("location:$location");
+    echo '<script language="javascript">';
+
+    echo 'alert("'.$message.'")';
+
+    echo '</script>';
+
+    echo "<script>document.location='$location'</script>";
 }
 
 function passstrengthcheck($password, &$strong)
@@ -49,18 +54,15 @@ function createacc($username, $password, $passwordconf, $email, $firstname, $las
         );
         $result = mysqli_query($conn, $query);
         if (!$result) {
-            echo "<p>Failed to connect. Please try again.</p>";
-            redir(5, "new-user.php");
+            redir("Failed to connect. Please try again.", "new-user.php");
         } else {
             setcookie("User", $username);
-            echo "<p>Welcome to Exercise App, $username.</p>";
-            redir(5, "index.php");
+            redir("Welcome to Exercise App, $username.", "index.php");
         }
         mysqli_free_result($result);
         mysqli_close($conn);
     } else {
-        echo "<p>Failed to create account. Please ensure passwords match, and are strong enough.</p>";
-        redir(5, "new-user.php");
+        redir("Failed to create account. Please ensure passwords match, and are strong enough.", "new-user.php");
     }
 }
 

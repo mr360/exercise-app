@@ -11,10 +11,15 @@
         return $input;
     }
 
-    function redir($time, $location)
+    function redir($message, $location)
     {
-        sleep($time);
-        header("location:$location");
+        echo '<script language="javascript">';
+
+        echo 'alert("'.$message.'")';
+
+        echo '</script>';
+
+        echo "<script>document.location='$location'</script>";
     }
 
     function login($username, $password)
@@ -29,19 +34,16 @@
         $result = mysqli_query($conn, $query);
 
         if (!$result) {
-            echo "<p>Failed to log in. Please try again.</p>";
-            redir(5, "login.php");
+            redir("Failed to log in. Please try again.", "login.php");
         } else {
             $retrieved = implode(mysqli_fetch_assoc($result));
             $hash = hash('sha512', $password);
             if ($hash == $retrieved)
             {
                 setcookie("User", $username);
-                echo "<p>Welcome back, $username.</p>";
-                redir(5, "index.php");
+                redir("Welcome back, $username.", "index.php");
             } else {
-                echo "<p>Password incorrect. Please try again.</p>";
-                redir(5, "login.php");
+                redir("Password incorrect. Please try again.", "login.php");
             }
         }
         mysqli_free_result($result);

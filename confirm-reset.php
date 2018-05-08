@@ -11,10 +11,15 @@ function sanitise($input)
     return $input;
 }
 
-function redir($time, $location)
+function redir($message, $location)
 {
-    sleep($time);
-    header("location:$location");
+    echo '<script language="javascript">';
+
+    echo 'alert("'.$message.'")';
+
+    echo '</script>';
+
+    echo "<script>document.location='$location'</script>";
 }
 
 function runquery($query)
@@ -29,11 +34,9 @@ function runquery($query)
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
-        echo "<p>Failed to reset password. Please try again.</p>";
-        redir(5, "password-reset.php");
+        redir("Failed to reset password. Please try again.", "password-reset.php");
     } else {
-        echo "<p>Success.</p>";
-        redir(5, "login.php");
+        redir("Success.", "login.php");
     }
     mysqli_free_result($result);
     mysqli_close($conn);
@@ -47,8 +50,7 @@ function resetpass($username, $password, $confpassword)
         $query = "update users set password = '$hash' where username = '$username'";
         return $query;
     } else {
-        echo "<p>Passwords did not match. Please try again.</p>";
-        redir(5, "password-reset.php");
+        redir("Passwords did not match. Please try again.", "password-reset.php");
     }
 }
 
