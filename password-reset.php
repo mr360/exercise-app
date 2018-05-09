@@ -7,28 +7,27 @@
     <title>Exercise app</title>
     <link rel="icon" type="image/png" href="images/favicon.svg" />
     <link rel="stylesheet" href="styles/style.css" />
+    <script src="scripts/reset-pass-fill.js"></script>
 </head>
 
 <body>
 <?php include 'header.php'; ?>
 
-<form id="login" action="confirm-login.php" method="post">
+<form id="reset-pass" action="confirm-reset.php" method="post">
     <fieldset>
         <legend>
-            Sign in
+            Reset Password
         </legend>
         <p>
-            <label for="username">User Name</label>
-            <input type="text" name="username" id="username" size="20" required="required" pattern="[a-zA-Z\d]{1,50}" />
-            <br />
-            <br />
+            <input type="hidden" name="username" id="username" />
             <label for="password">Password</label>
             <input type="password" name="password" id="password" size="20" required="required" pattern="[a-zA-Z\d]{1,50}" />
             <br />
             <br />
-            <a href="forgot-password.php">Forgot password?</a>
+            <label for="confpassword">Confirm password</label>
+            <input type="password" name="confpassword" id="confpassword" size="20" required="required" pattern="[a-zA-Z\d]{1,50}" />
         </p>
     </fieldset>
-    <input type="submit" value="Log in" />
+    <input type="submit" value="Reset password" />
 </form>
 </body>
