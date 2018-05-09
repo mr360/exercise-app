@@ -74,7 +74,7 @@ function createMessageTable($mfrom, $mto, $sender, $phone, $postnumber)
        $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
      $query = "insert into messages (mfrom, mto, sender, phone, postnumber)  values ('$mfrom', '$mto', '$sender', '$phone', $postnumber)";
      $result = mysqli_query($conn, $query);
-     return result;
+     return $result;
 
 }
 

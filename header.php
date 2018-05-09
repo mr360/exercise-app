@@ -15,9 +15,17 @@
     <br />
     <nav id="links">
         <a href="index.php">Home</a>
-        <a href="login.php">Login</a>
-        <a href="new-user.php">Create Account</a>
-        <a href="listings.php">Listings</a>
+        <?php
+        if (!(isset($_COOKIE['User'])))
+        {
+            echo "<a href=\"login.php\">Login</a>
+                    <a href=\"new-user.php\">Create Account</a> ";
+        } else {
+            echo "<a href=\"listings.php\">Create Listing</a>
+                    <a href=\"view-listings.php\">View Listings</a>
+                    <a href=\"view-messages.php\">View Messages</a>";
+        }
+        ?>
     </nav>
     <hr />
 </header>
