@@ -7,7 +7,11 @@
    <meta name="listing" content="exercise details" />
    <meta name="keywords" content="exercise, athletic ability, location" />
    <meta name="author" content="Hiep Nguyen"  />
+   <!-- Viewport set to scale 1.0 -->
+   <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Reference to external basic CSS file -->
    <link rel="stylesheet" href="styles/style.css" />
+
    <title>View Listings</title>
 </head>
 
@@ -20,7 +24,17 @@
   <h1>Details of Current Exercise </h1>
 </header>
 <?php 
-require("settings.php");
+
+function connection()
+    {
+       require("settings.php");
+       $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+       return $conn; 
+    }
+
+function viewListing()
+{
+  require("settings.php");
    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$conn)
     {
@@ -28,12 +42,12 @@ require("settings.php");
     } 
     else
     {
-        $sql_table="exerciseDetails";
+
+      $sql_table="messages";
         $query = "select * from exerciseDetails";
         $result = mysqli_query($conn, $query);
-       
 
-        if(!$result)
+      if(!$result)
         {
              echo "<p>Something is wrong with", $query, "</p>";
         }
@@ -41,42 +55,55 @@ require("settings.php");
         
         {
 
-
             while ($row = mysqli_fetch_assoc($result)){
-              
-                echo "<table class = \"viewListingTable\">\n";
-                   // echo "<thread>\n";
-                    echo "<tr>\n";
-                        echo "<th scope=\"col\">Exercise</th>\n";
-                        echo "<th scope=\"col\">Athletic</th>\n";
-                        echo "<th scope=\"col\">Location</th>\n";
-                        echo "<th scope=\"col\"> </th>\n";
 
-                     echo "</tr>\n";
-                   //  echo "</thread>\n";
-                    // echo "<tfoot>\n";
-                        echo "<tr>\n";
-                         echo "<td>",$row["Exercise"],"</td>\n";
-                         echo "<td>",$row["Athletic"],"</td>\n";
-                        echo "<td>",$row["Location"],"</td>\n";
-                        echo "<td><button><a href=create-message.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
-                     echo "</tr>\n";
+              echo "<section class = \"sec1\">\n";
 
-                      echo "<tr>\n";
-                      echo "<td colspan=\"3\">",$row["BlurbDetails"],"</td>\n";
-                    echo "<td>",$row["create_time"],"</td>\n";
-                    echo "</tr>\n";
-                   //  echo "</tfoot>\n";
+                echo "<div class = \"div1\">\n";
+                  echo "<p><strong>Exercise:</strong></p>",$row["Exercise"],"\n";
 
-                    //echo "<tr>\n";
-                   // echo "<td colspan = \"4\" >",$row["BlurbDetails"],"</td>\n";
-                    // echo "</tr>\n";
+                echo "</div>\n";
 
-                   // echo "<td><button><a href=send-message.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
-                 
+                echo "<div class = \"div2\">\n";
+                  echo "<p><strong>Athletic:</strong></p>",$row["Athletic"],"\n";
 
-                    echo "</table>\n";
+                echo "</div>\n";
 
+                echo "<div class = \"div3\">\n";
+                  echo "<p><strong>Location:</strong></p>",$row["Location"],"\n";
+
+                echo "</div>\n";
+
+                echo "<div class = \"div4\">\n";
+
+                  echo "<p><strong>Gender:</strong></p>",$row["Gender"],"\n";
+
+                echo "</div>\n";
+
+                echo "<div class = \"div5\">\n";
+
+                  echo "<p><strong>Age:</strong></p>",$row["Age"],"\n";
+
+                echo "</div>\n";
+                echo "<div class = \"div6\">\n";
+
+                  echo "<p><button><a href=create-message.php?postnumber=",$row["postNumber"],">Send Message</a></button> </p>
+                  <p> Time post: ",$row["create_time"],"</p>\n";;
+
+                echo "</div>\n";
+                
+
+                 echo "<div class = \"div7\">\n";
+
+                  echo "<p><strong>BlurbDetails:</strong></p>",$row["BlurbDetails"],"\n";
+
+                echo "</div>\n";
+
+
+               echo "</section>\n";
+
+
+           
             }
             
             mysqli_free_result($result);
@@ -86,6 +113,10 @@ require("settings.php");
 
 mysqli_close($conn);
 }
+}
+
+viewListing();
+
 
  ?>
   
