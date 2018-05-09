@@ -6,6 +6,7 @@
    <meta charset="utf-8" />
    <meta name="listing" content="exercise details" />
    <meta name="keywords" content="exercise, athletic ability, location" />
+   <link rel="icon" type="image/png" href="images/favicon.svg" />
    <meta name="author" content="Hiep Nguyen"  />
    <!-- Viewport set to scale 1.0 -->
    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
