@@ -7,7 +7,12 @@
    <meta name="listing" content="exercise details" />
    <meta name="keywords" content="exercise, athletic ability, location" />
    <meta name="author" content="Hiep Nguyen"  />
+   <!-- Viewport set to scale 1.0 -->
+   <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Reference to external basic CSS file -->
    <link rel="stylesheet" href="styles/style.css" />
+
+
    <title>View Message</title>
 </head>
 
@@ -20,11 +25,32 @@
 
 </header>
 <?php 
-require("settings.php");
-   $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-    if (!$conn)
+
+function connection1()
     {
-        echo "<p>Database connection failure</p>";
+       require("settings.php");
+       $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+       return $conn; 
+    }
+function getMessages($conn, $curuser) {
+ 
+  $query = "select * from messages m, exerciseDetails e where m.postnumber = e.postNumber and (m.mfrom = '$curuser' or m.mto = '$curuser')";
+  
+  return mysqli_query($conn, $query);
+}
+
+function updateMessage($conn, $id, $status) {
+
+    $query = "update messages set status = '$status' where messageId = $id";
+    return mysqli_query($conn, $query);
+}    
+
+function viewMessage()
+{
+  $conn = connection1();
+  if (!$conn)
+    {
+      echo "<p>Database connection failure</p>";
     } 
     else
     {
@@ -34,94 +60,135 @@ require("settings.php");
         $id = $_GET["id"];
         //echo "cmd",$cmd;
         if ($cmd == "accept") {
-          // update status = accepted. 
-          $query = "update messages set status = 'accepted' where messageId = $id";
-          //echo "query",$query;
-          $result = mysqli_query($conn, $query);
+          updateMessage($conn, $id, "accepted");
         }
 
         if ($cmd == "decline") {
-          // update status = declined 
-          $query = "update messages set status = 'declined' where messageId = $id";
-          //echo "query",$query;
-          $result = mysqli_query($conn, $query);
+          updateMessage($conn, $id, "declined");
         }
         
-        //echo "result", $result;
-        $query = "select * from messages m, exerciseDetails e where m.postnumber = e.postNumber and (m.mfrom = '$curuser' or m.mto = '$curuser')";
-        $result = mysqli_query($conn, $query);
+        $result = getMessages($conn, $curuser);
 
         if(!$result)
         {
-             echo "<p>Something is wrong with", $query, "</p>";
+             echo "<p>Something is wrong with workWithDatabase query</p>";
         }
         else
         
         {
-
-
             while ($row = mysqli_fetch_assoc($result)){
 
             if($curuser==$row["mto"])
             {
-               echo "<table class = \"viewListingTable\">\n";
-                
-                    echo "<tr>\n";
-                        echo "<th scope=\"col\">Exercise</th>\n";
-                        echo "<th scope=\"col\">Athletic</th>\n";
-                        echo "<th scope=\"col\">Location</th>\n";
-                        echo "<th scope=\"col\">",$row["create_time"],"</th>\n";
+              
 
-                     echo "</tr>\n";
-                  
-                        echo "<tr>\n";
-                          echo "<td>",$row["Exercise"],"</td>\n";
-                          echo "<td>",$row["Athletic"],"</td>\n";
-                          echo "<td>",$row["Location"],"</td>\n";
-                          if ($row["status"] == "waiting") {
-                            echo "<td><p><button><a href='view-messages.php?cmd=accept&id=",$row["messageId"],"'>Accept and Display Phone</a></button></p>";
-                            echo "<p><button><a href='view-messages.php?cmd=decline&id=",$row["messageId"],"'>Decline</a></button></p></td>\n";
+              echo "<section class = \"sec1\">\n";
+
+                echo "<div class = \"div1\">\n";
+                  echo "<p><strong>Exercise:</strong></p>",$row["Exercise"],"\n";
+
+                echo "</div>\n";
+
+                echo "<div class = \"div2\">\n";
+                  echo "<p><strong>Athletic:</strong></p>",$row["Athletic"],"\n";
+
+                echo "</div>\n";
+
+                echo "<div class = \"div3\">\n";
+                  echo "<p><strong>Location:</strong></p>",$row["Location"],"\n";
+
+                echo "</div>\n";
+
+                echo "<div class = \"div4\">\n";
+
+                  echo "<p><strong>Gender:</strong></p>",$row["Gender"],"\n";
+
+                echo "</div>\n";
+
+                echo "<div class = \"div5\">\n";
+
+                  echo "<p><strong>Age:</strong></p>",$row["Age"],"\n";
+
+                echo "</div>\n";
+                echo "<div class = \"div6\">\n";
+                  echo "<p> Time post: ",$row["create_time"],"</p>\n";
+                 if ($row["status"] == "waiting") {
+                            echo "<p><button><a href='view-messages.php?cmd=accept&id=",$row["messageId"],"'>Accept and Display Phone</a></button></p>\n";
+                            echo "<p><button><a href='view-messages.php?cmd=decline&id=",$row["messageId"],"'>Decline</a></button></p>\n";
                           } else {
-                            echo "<td><strong>",$row["status"],"</strong></td>";
+                            echo "<strong>",$row["status"],"</strong>";
                           }
-                        echo "</tr>\n";
-                        echo "<tr>\n";
-                          echo "<td colspan=\"4\">I am",$row["sender"],"</td>\n";
-                        echo "</tr>\n";
-                echo "</table>\n";
+
+                echo "</div>\n";
+                
+
+                 echo "<div class = \"div7\">\n";
+
+                  echo "<p>Hi, my name is ",$row["sender"]," and I am interested in exercising with you</p>\n";
+
+                echo "</div>\n";
+                 
+
+               echo "</section>\n";
+
             }
+
+            
             if($curuser==$row["mfrom"])
             { 
+               echo "<section class = \"sec1\">\n";
 
-                echo "<table class = \"viewListingTable\">\n";
-                
-                    echo "<tr>\n";
-                        echo "<th scope=\"col\">Exercise</th>\n";
-                        echo "<th scope=\"col\">Athletic</th>\n";
-                        echo "<th scope=\"col\">Location</th>\n";
-                        echo "<th scope=\"col\">",$row["create_time"],"</th>\n";
+                echo "<div class = \"div1\">\n";
+                  echo "<p><strong>Exercise:</strong></p>",$row["Exercise"],"\n";
 
-                     echo "</tr>\n";
-                  
-                        echo "<tr>\n";
-                          echo "<td>",$row["Exercise"],"</td>\n";
-                          echo "<td>",$row["Athletic"],"</td>\n";
-                          echo "<td>",$row["Location"],"</td>\n";
-                          // echo "status:",$row["status"];
-                          if ($row["status"] == 'waiting') {
-                            echo "<td><strong>Awaiting Response</strong></td>";
+                echo "</div>\n";
+
+                echo "<div class = \"div2\">\n";
+                  echo "<p><strong>Athletic:</strong></p>",$row["Athletic"],"\n";
+
+                echo "</div>\n";
+
+                echo "<div class = \"div3\">\n";
+                  echo "<p><strong>Location:</strong></p>",$row["Location"],"\n";
+
+                echo "</div>\n";
+
+                echo "<div class = \"div4\">\n";
+
+                  echo "<p><strong>Gender:</strong></p>",$row["Gender"],"\n";
+
+                echo "</div>\n";
+
+                echo "<div class = \"div5\">\n";
+
+                  echo "<p><strong>Age:</strong></p>",$row["Age"],"\n";
+
+                echo "</div>\n";
+                echo "<div class = \"div6\">\n";
+                  echo "<p> <strong>Time post: </strong>",$row["create_time"],"</p>\n";
+                 if ($row["status"] == 'waiting') {
+                            echo "<strong>Awaiting Response</strong>";
                           }
                           if ($row["status"] == 'accepted') {
-                            echo "<td>Please call me at this number<br><strong>",$row["phone"],"</strong></td>";
+                            echo "Please call me at this number<br><strong>",$row["phone"],"</strong>";
                           }
                           if ($row["status"] == 'declined') {
-                            echo "<td><strong>Declined</strong></td>";
+                            echo "<strong>Declined</strong>";
                           }
-                        echo "</tr>\n";
-                        echo "<tr>\n";
-                          echo "<td colspan=\"4\">I am",$row["sender"]," ... blah bha...</td>\n";
-                        echo "</tr>\n";
-                echo "</table>\n";
+
+                echo "</div>\n";
+                
+
+                 echo "<div class = \"div7\">\n";
+
+                  echo "<p>Hi, my name is ",$row["sender"]," and I am interested in exercising with you</p>\n";
+
+                echo "</div>\n";
+                 
+
+               echo "</section>\n";
+
+                
             }
               
                
@@ -135,7 +202,10 @@ require("settings.php");
     }
 
     mysqli_close($conn);
+}
 
+
+viewMessage();
 
  ?>
   

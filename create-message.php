@@ -1,8 +1,4 @@
-<?php 
-//if(session_status()!=PHP_SESSION_ACTIVE) 
-session_start();
-  
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,6 +68,16 @@ function getPhone()
 
 }
 
+function createMessageTable($mfrom, $mto, $sender, $phone, $postnumber)
+{
+     require ("settings.php");
+       $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+     $query = "insert into messages (mfrom, mto, sender, phone, postnumber)  values ('$mfrom', '$mto', '$sender', '$phone', $postnumber)";
+     $result = mysqli_query($conn, $query);
+     return result;
+
+}
+
 function createMessageData()
 {
     require ("settings.php");
@@ -105,18 +111,17 @@ function createMessageData()
                 $mto = getMessageUser();
                 $sender = getMessageSender();
                 $phone = getPhone();
-                 echo "postnumber is", $postnumber;
-
-                $query = "insert into $sql_table (mfrom, mto, sender, phone, postnumber)  values ('$mfrom', '$mto', '$sender', '$phone', $postnumber)";
-            
-                 $result = mysqli_query($conn, $query);
+                echo "<p variable are", $postnumber, $mfrom, $mto, $sender, $phone, "</p>";
+                 
+                $result = createMessageTable($mfrom, $mto, $sender, $phone, $postnumber);
+               
                 if(!$result)
                 {
                     echo "<p class=\"wrong\">Something wrong with", $query, "</p>";
                 }
                 else
                 {
-                    echo "<p>message to $mto content $message</p>";
+                    echo "<p>your message has been sent to ", $mto, "</p>";
                 
                     echo "<button><a href=\"view-listings.php\">Send Message</a></button>";
           
@@ -124,7 +129,6 @@ function createMessageData()
 
              }
         }
-
 
 }
 createMessageData();

@@ -57,14 +57,7 @@
                       echo "<td colspan=\"3\">",$row["BlurbDetails"],"</td>\n";
                     echo "<td>",$row["create_time"],"</td>\n";
                     echo "</tr>\n";
-                   //  echo "</tfoot>\n";
-
-                    //echo "<tr>\n";
-                   // echo "<td colspan = \"4\" >",$row["BlurbDetails"],"</td>\n";
-                    // echo "</tr>\n";
-
-                   // echo "<td><button><a href=send-message.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
-                 
+                   
 
                     echo "</table>\n";
 
