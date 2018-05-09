@@ -9,7 +9,8 @@ class ChangePassTest extends PHPUnit\Framework\TestCase
     {
         $test = "newpass";
         $result = resetpass('test', $test, $test);
-        $query = "update users set password = '$test' where username = 'test'";
+        $hash = hash('sha512', $test);
+        $query = "update users set password = '$hash' where username = 'test'";
         $this->assertEquals($query, $result);
     }
 }
