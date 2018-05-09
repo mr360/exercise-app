@@ -280,6 +280,11 @@ button {border: 2px inset blue;
     margin: 2em;
     
 }
+    nav a{
+        width: 40%;
+        display: inline-block;
+    }
+
   
 }
 
@@ -343,6 +348,11 @@ button {border: 2px inset blue;
     margin: 2em;
     
 }
+    nav a{
+        width: 40%;
+        display: inline-block;
+    }
+
   
 }
 
