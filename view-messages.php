@@ -57,16 +57,20 @@ function viewMessage()
     {
         $curuser = $_COOKIE['User'];
         $sql_table="messages";
-        $cmd = $_GET["cmd"];
-        $id = $_GET["id"];
-        //echo "cmd",$cmd;
-        if ($cmd == "accept") {
-          updateMessage($conn, $id, "accepted");
+        if (isset($_GET["cmd"]))
+        {
+            $cmd = $_GET["cmd"];
+            $id = $_GET["id"];
+            //echo "cmd",$cmd;
+            if ($cmd == "accept") {
+                updateMessage($conn, $id, "accepted");
+            }
+
+            if ($cmd == "decline") {
+                updateMessage($conn, $id, "declined");
+            }
         }
 
-        if ($cmd == "decline") {
-          updateMessage($conn, $id, "declined");
-        }
         
         $result = getMessages($conn, $curuser);
 

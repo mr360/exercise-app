@@ -111,7 +111,7 @@ function createMessageData()
                 $mto = getMessageUser();
                 $sender = getMessageSender();
                 $phone = getPhone();
-                echo "<p variable are", $postnumber, $mfrom, $mto, $sender, $phone, "</p>";
+                //echo "<p> variable are $postnumber, $mfrom, $mto, $sender, $phone, </p>";
                  
                 $result = createMessageTable($mfrom, $mto, $sender, $phone, $postnumber);
                
