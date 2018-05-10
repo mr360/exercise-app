@@ -118,8 +118,8 @@ function viewMessage()
                 echo "<div class = \"div6\">\n";
                   echo "<p> Time post: ",$row["create_time"],"</p>\n";
                  if ($row["status"] == "waiting") {
-                            echo "<p><button><a href='view-messages.php?cmd=accept&id=",$row["messageId"],"'>Accept and Display Phone</a></button></p>\n";
-                            echo "<p><button><a href='view-messages.php?cmd=decline&id=",$row["messageId"],"'>Decline</a></button></p>\n";
+                            echo "<p><a class='button' href='view-messages.php?cmd=accept&id=",$row["messageId"],"'>Accept and Display Phone</a></p>\n";
+                            echo "<p><a class='button' href='view-messages.php?cmd=decline&id=",$row["messageId"],"'>Decline</a></p>\n";
                           } else {
                             echo "<strong>",$row["status"],"</strong>";
                           }

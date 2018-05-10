@@ -50,7 +50,7 @@
                          echo "<td>",$row["Exercise"],"</td>\n";
                          echo "<td>",$row["Athletic"],"</td>\n";
                         echo "<td>",$row["Location"],"</td>\n";
-                        echo "<td><button><a href=send-message.php?postnumber=",$row["postNumber"],">Send Message</a></button></td>\n";
+                        echo "<td><a class='button' =send-message.php?postnumber=",$row["postNumber"],">Send Message</a></td>\n";
                      echo "</tr>\n";
 
                       echo "<tr>\n";

@@ -23,7 +23,7 @@ body{
     background-color: lightcyan;
 }
 
-button {border: 2px inset blue;
+.button {border: 2px inset blue;
         margin: 0.5em;
         padding: 0.5em;
         width: 10em;
