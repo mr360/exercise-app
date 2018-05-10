@@ -123,7 +123,7 @@ function createMessageData()
                 {
                     echo "<p>your message has been sent to ", $mto, "</p>";
                 
-                    echo "<a class='button' =\"view-listings.php\">Send Message</a>";
+                    echo "<a class='button' href=\"view-listings.php\">Send Message</a>";
           
                 }
 
