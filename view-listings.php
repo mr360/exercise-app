@@ -6,6 +6,7 @@
    <meta charset="utf-8" />
    <meta name="listing" content="exercise details" />
    <meta name="keywords" content="exercise, athletic ability, location" />
+   <link rel="icon" type="image/png" href="images/favicon.svg" />
    <meta name="author" content="Hiep Nguyen"  />
    <!-- Viewport set to scale 1.0 -->
    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
@@ -87,7 +88,7 @@ function viewListing()
                 echo "</div>\n";
                 echo "<div class = \"div6\">\n";
 
-                  echo "<p><button><a href=create-message.php?postnumber=",$row["postNumber"],">Send Message</a></button> </p>
+                  echo "<p class='button'><a href=create-message.php?postnumber=",$row["postNumber"],">Send Message</a> </p>
                   <p> Time post: ",$row["create_time"],"</p>\n";;
 
                 echo "</div>\n";

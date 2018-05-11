@@ -144,7 +144,7 @@
                  echo "<p>Your Gender is: $gender</p>";
                   echo "<p>Your age is: $age</p>";
                 echo "<p>Other details is: $blurbDetails</p>";
-                echo "<button><a href=\"view-listings.php\">Post Your Exercise</a></button>";
+                echo "<a href=\"view-listings.php\" class='button'>Post Your Exercise</a>";
                 
         
             }

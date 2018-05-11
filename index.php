@@ -11,5 +11,10 @@
 
 <body>
     <?php include 'header.php'; ?>
-    <h2>Fill in some text here</h2>
+    <h2>Welcome To Your New Gym</h2>
+    <p>
+        <strong>Exercise App</strong> is the next big thing in the fitness focused world. It is a social network where like-minded people can connect with one another to arrange workouts.
+        <br />
+        Unlike some other networks, we value you as a customer. That's why we do not run ads, or sell your data on to third parties. Instead, we are entirely funded through our store. <em>Coming soon</em>
+    </p>
 </body>

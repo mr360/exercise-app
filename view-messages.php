@@ -6,6 +6,7 @@
    <meta charset="utf-8" />
    <meta name="listing" content="exercise details" />
    <meta name="keywords" content="exercise, athletic ability, location" />
+   <link rel="icon" type="image/png" href="images/favicon.svg" />
    <meta name="author" content="Hiep Nguyen"  />
    <!-- Viewport set to scale 1.0 -->
    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
@@ -56,16 +57,20 @@ function viewMessage()
     {
         $curuser = $_COOKIE['User'];
         $sql_table="messages";
-        $cmd = $_GET["cmd"];
-        $id = $_GET["id"];
-        //echo "cmd",$cmd;
-        if ($cmd == "accept") {
-          updateMessage($conn, $id, "accepted");
+        if (isset($_GET["cmd"]))
+        {
+            $cmd = $_GET["cmd"];
+            $id = $_GET["id"];
+            //echo "cmd",$cmd;
+            if ($cmd == "accept") {
+                updateMessage($conn, $id, "accepted");
+            }
+
+            if ($cmd == "decline") {
+                updateMessage($conn, $id, "declined");
+            }
         }
 
-        if ($cmd == "decline") {
-          updateMessage($conn, $id, "declined");
-        }
         
         $result = getMessages($conn, $curuser);
 
@@ -113,8 +118,8 @@ function viewMessage()
                 echo "<div class = \"div6\">\n";
                   echo "<p> Time post: ",$row["create_time"],"</p>\n";
                  if ($row["status"] == "waiting") {
-                            echo "<p><button><a href='view-messages.php?cmd=accept&id=",$row["messageId"],"'>Accept and Display Phone</a></button></p>\n";
-                            echo "<p><button><a href='view-messages.php?cmd=decline&id=",$row["messageId"],"'>Decline</a></button></p>\n";
+                            echo "<p><a class='button' href='view-messages.php?cmd=accept&id=",$row["messageId"],"'>Accept and Display Phone</a></p>\n";
+                            echo "<p><a class='button' href='view-messages.php?cmd=decline&id=",$row["messageId"],"'>Decline</a></p>\n";
                           } else {
                             echo "<strong>",$row["status"],"</strong>";
                           }
