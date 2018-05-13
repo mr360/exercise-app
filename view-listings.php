@@ -89,6 +89,7 @@ function viewListing()
                 echo "<div class = \"div6\">\n";
 
                   echo "<p class='button'><a href=create-message.php?postnumber=",$row["postNumber"],">Send Message</a> </p>
+                  <p class='button'><a href=user-profile.php?postnumber=",$row["postNumber"],">See Profile</a> </p>
                   <p> Time post: ",$row["create_time"],"</p>\n";;
 
                 echo "</div>\n";
