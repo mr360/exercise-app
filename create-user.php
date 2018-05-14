@@ -40,7 +40,7 @@ function passstrengthcheck($password, &$strong)
     }
 }
 
-function createacc($username, $password, $passwordconf, $email, $firstname, $lastname)
+function createacc($username, $password, $passwordconf, $email, $firstname, $lastname, $phone)
 {
     passstrengthcheck($password, $strong);
     if ($passwordconf == $password && $strong){
