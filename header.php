@@ -23,7 +23,8 @@
         } else {
             echo "<a href=\"listings.php\">Create Listing</a>
                     <a href=\"view-listings.php\">View Listings</a>
-                    <a href=\"view-messages.php\">View Messages</a>";
+                    <a href=\"view-messages.php\">View Messages</a>
+                    <a href=\"my-profile.php\">My Profile</a>";
         }
         ?>
     </nav>
