@@ -24,6 +24,7 @@
 <header>
   <h1>Details of Current Exercise </h1>
 </header>
+<p><a href="search-listings.php">Search for specific listings?</a> </p>
 <?php 
 
 function connection()
