@@ -33,7 +33,12 @@
 
 function viewListing()
 {
-  require("settings.php");
+  echo 'sad';
+}
+
+//viewListing();
+/*
+require("settings.php");
    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$conn)
     {
@@ -113,10 +118,7 @@ function viewListing()
 
 mysqli_close($conn);
 }
-}
-
-viewListing();
-
+*/
 
  ?>
   
