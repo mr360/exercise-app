@@ -18,7 +18,9 @@
 
 <body>
 
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+
+ ?>
 
 
 <header>
@@ -27,12 +29,7 @@
 <p><a href="search-listings.php">Search for specific listings?</a> </p>
 <?php 
 
-function connection()
-    {
-       require("settings.php");
-       $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-       return $conn; 
-    }
+
 
 function viewListing()
 {
