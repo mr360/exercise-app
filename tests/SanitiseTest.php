@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require "../confirm-login.php";
+include_once("../confirm-login.php");
 
 class SanitiseTest extends PHPUnit\Framework\TestCase
 {
