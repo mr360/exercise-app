@@ -30,9 +30,6 @@ cache:
 before_script:
 - chmod +x phpunit.phar
 - docker-php-ext-install mysqli
-# Install git, the php image doesn't have installed
-- apt-get update -yqq
-- apt-get install git -yqq
  
 # Install mysql driver
 - docker-php-ext-install pdo_mysql
@@ -47,9 +44,3 @@ variables:
   MYSQL_DATABASE: exerciseapp
   MYSQL_ROOT_PASSWORD: test
  
-# We test PHP7 with MySQL, but we allow it to fail
-test:php7:mysql:
-  image: php:7
-  script:
-  - vendor/bin/phpunit --configuration phpunit_mysql.xml --coverage-text
-  allow_failure: true
