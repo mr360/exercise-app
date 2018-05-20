@@ -1,0 +1,8 @@
+before_script:
+
+stages:
+  - test
+
+test:
+  script:
+  - php vendor/phpunit/phpunit/phpunit
