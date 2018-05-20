@@ -3,7 +3,7 @@
 // Note: Function is expected to trim anything that isn't alphanumeric.
 // Keep it simple. Does limit passwords, but security isn't the most important thing at the moment.
 // Can be changed if we switch the DB to using some form of hashing for passwords.
-function sanitise($input)
+function fsanitise($input)
 {
     $input = trim($input);
     $input = stripslashes($input);
@@ -56,9 +56,9 @@ function resetpass($username, $password, $confpassword)
 
 
 
-$username = sanitise($_POST["username"]);
-$password = sanitise($_POST["password"]);
-$confpassword = sanitise($_POST["confpassword"]);
+$username = fsanitise($_POST["username"]);
+$password = fsanitise($_POST["password"]);
+$confpassword = fsanitise($_POST["confpassword"]);
 
 $query = resetpass($username, $password, $confpassword);
 if ($query != null)
