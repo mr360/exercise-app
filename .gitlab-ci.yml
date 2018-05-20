@@ -5,10 +5,12 @@ services:
   - mysql
 
 before_script:
-
+  - chmod +x phpunit.phar
+  - docker-php-ext-install pdo_mysql
+  
 stages:
   - test
 
 test:
   script:
-  - php vendor/phpunit/phpunit/phpunit
+  - phpunit.phar == configuration phpunit.xml
