@@ -29,7 +29,7 @@
 <p><a href="search-listings.php">Search for specific listings?</a> </p>
 <?php 
 
-
+viewListing();
 
 //function viewListing()
 //{
