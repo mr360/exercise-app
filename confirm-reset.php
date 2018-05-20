@@ -39,7 +39,7 @@ function resetpass($username, $password, $confpassword)
 
 
 
-$username = sanitise($input($_POST["username"]);
+$username = sanitise($_POST["username"]);
 $password = sanitise($_POST["password"]);
 $confpassword = sanitise($_POST["confpassword"]);
 
