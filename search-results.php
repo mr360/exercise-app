@@ -26,12 +26,6 @@
 </header>
 <?php
 
-function connection()
-{
-    require("settings.php");
-    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-    return $conn;
-}
 
 function generateQuery()
 {
