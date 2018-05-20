@@ -1,4 +1,9 @@
+services:
+  - php
+  - mysql
+
 before_script:
+  - docker-php-ext-enable pdo_mysql
 
 stages:
   - test
