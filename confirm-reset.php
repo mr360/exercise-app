@@ -29,9 +29,9 @@ function runquery($query)
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
-        redir("Failed to reset password. Please try again.", "password-reset.php");
+        echo redir("Failed to reset password. Please try again.", "password-reset.php");
     } else {
-        redir("Success.", "login.php");
+        echo redir("Success.", "login.php");
     }
     mysqli_free_result($result);
     mysqli_close($conn);
@@ -45,7 +45,7 @@ function resetpass($username, $password, $confpassword)
         $query = "update users set password = '$hash' where username = '$username'";
         return $query;
     } else {
-        redir("Passwords did not match. Please try again.", "password-reset.php");
+        echo redir("Passwords did not match. Please try again.", "password-reset.php");
     }
 }
 
