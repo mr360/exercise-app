@@ -13,4 +13,4 @@ stages:
 
 test:
   script:
-  - phpunit.phar == configuration phpunit.xml
+  - ./phpunit.phar == configuration phpunit.xml
