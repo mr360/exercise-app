@@ -1,7 +1,7 @@
 <?php
 
 // Need to create multiple versions for this. The email formatting will require a new version, that accepts '@' and '.'.
-include 'create-user.php';
+// include 'create-user.php';
 
 function passstrengthcheck($password, &$strong)
 {
