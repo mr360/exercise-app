@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require "/builds/maxcb97/exercise-app/confirm-login.php";
+include_once("/builds/maxcb97/exercise-app/confirm-login.php");
 
 class LoginTest extends PHPUnit\Framework\TestCase
 {
