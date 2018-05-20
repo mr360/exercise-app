@@ -4,10 +4,12 @@ services:
   - php
   - mysql
 
+
 before_script:
   - chmod +x phpunit.phar
   - docker-php-ext-install pdo_mysql
   - docker-php-ext-install mysqli
+
   
 stages:
   - test
@@ -15,3 +17,39 @@ stages:
 test:
   script:
   - ./phpunit.phar --configuration phpunit.xml
+  - ./phpunit.phar --configuration phpunit.xml
+  
+  # Select image from https://hub.docker.com/_/php/
+image: php:7.2
+ 
+# Select what we should cache
+cache:
+  paths:
+  - vendor/
+ 
+before_script:
+- chmod +x phpunit.phar
+- docker-php-ext-install mysqli
+# Install git, the php image doesn't have installed
+- apt-get update -yqq
+- apt-get install git -yqq
+ 
+# Install mysql driver
+- docker-php-ext-install pdo_mysql
+
+ 
+services:
+  - php
+  - mysql
+
+variables:
+  # Configure mysql service (https://hub.docker.com/_/mysql/)
+  MYSQL_DATABASE: exerciseapp
+  MYSQL_ROOT_PASSWORD: test
+ 
+# We test PHP7 with MySQL, but we allow it to fail
+test:php7:mysql:
+  image: php:7
+  script:
+  - vendor/bin/phpunit --configuration phpunit_mysql.xml --coverage-text
+  allow_failure: true
