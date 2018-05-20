@@ -19,26 +19,8 @@
 <body>
 
 <?php include 'header.php';
-
- ?>
-
-
-<header>
-  <h1>Details of Current Exercise </h1>
-</header>
-<p><a href="search-listings.php">Search for specific listings?</a> </p>
-<?php 
-
-viewListing();
-
-//function viewListing()
-//{
- // echo 'sad';
-//}
-
-//viewListing();
-/*
-require("settings.php");
+function viewListing() {
+  require("settings.php");
    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$conn)
     {
@@ -105,19 +87,36 @@ require("settings.php");
                 echo "</div>\n";
 
 
-               echo "</section>\n";
-
-
-           
+               echo "</section>\n";    
             }
-            
+         
             mysqli_free_result($result);
-
-
     }
 
 mysqli_close($conn);
 }
+}
+ ?>
+
+
+<header>
+  <h1>Details of Current Exercise </h1>
+</header>
+<p><a href="search-listings.php">Search for specific listings?</a> </p>
+<?php 
+
+
+
+viewListing();
+
+//function viewListing()
+//{
+ // echo 'sad';
+//}
+
+//viewListing();
+/*
+
 */
 
  ?>
