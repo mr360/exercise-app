@@ -19,7 +19,16 @@
 <body>
 
 <?php include 'header.php';
-function viewListing() {
+
+ ?>
+
+
+<header>
+  <h1>Details of Current Exercise </h1>
+</header>
+<p><a href="search-listings.php">Search for specific listings?</a> </p>
+<?php 
+
   require("settings.php");
    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$conn)
@@ -95,19 +104,7 @@ function viewListing() {
 
 mysqli_close($conn);
 }
-}
- ?>
 
-
-<header>
-  <h1>Details of Current Exercise </h1>
-</header>
-<p><a href="search-listings.php">Search for specific listings?</a> </p>
-<?php 
-
-
-
-viewListing();
 
 //function viewListing()
 //{
