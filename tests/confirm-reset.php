@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-include_once("../confirm-reset.php");
+require "../confirm-reset.php";
 
 class ChangePassTest extends PHPUnit\Framework\TestCase
 {

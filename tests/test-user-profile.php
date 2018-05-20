@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-include_once("../my-profile.php");
+require "../my-profile.php";
 
 class UserProfileTest extends PHPUnit\Framework\TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-include_once("../load-listings.php");
-include_once("../view-listings.php");
-include_once("../create-message.php");
-include_once("../view-messages.php");
+require "../load-listings.php";
+require "../view-listings.php";
+require "../create-message.php";
+require "../view-messages.php";
 
 
 class TestListingAndMessaging extends PHPUnit\Framework\TestCase

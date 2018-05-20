@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-include_once("../search-results.php");
+require "../search-results.php";
 
 class SearchTest extends PHPUnit\Framework\TestCase
 {
