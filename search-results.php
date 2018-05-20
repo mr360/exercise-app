@@ -69,7 +69,7 @@ function generateQuery()
     return $query;
 }
 
-viewListing();
+//viewListing();
 
 
 ?>
