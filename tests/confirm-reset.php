@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require "../../confirm-reset.php";
+require "/builds/maxcb97/exercise-app/confirm-reset.php";
 
 class ChangePassTest extends PHPUnit\Framework\TestCase
 {

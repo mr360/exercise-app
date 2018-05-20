@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require "../../confirm-login.php";
+require "/builds/maxcb97/exercise-app/confirm-login.php";
 
 class SanitiseTest extends PHPUnit\Framework\TestCase
 {

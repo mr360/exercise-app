@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require "../../my-profile.php";
+require "/builds/maxcb97/exercise-app/my-profile.php";
 
 class UserProfileTest extends PHPUnit\Framework\TestCase
 {
