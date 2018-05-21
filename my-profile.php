@@ -27,7 +27,7 @@
 
 
 
-function getProfileData($query)
+function TgetProfileData($query)
     {
                     
       require("settings.php");
@@ -46,67 +46,67 @@ function getProfileData($query)
         return $retrieved;
     }
 
-function getFirstName($username)
+function TgetFirstName($username)
 {
     $firstname_query = "SELECT firstname FROM users WHERE username = '$username'";
-    return getProfileData($firstname_query);
+    return TgetProfileData($firstname_query);
 
 
 }
 
-function getLastName($username)
+function TgetLastName($username)
 {
     $lastname = $_COOKIE['User'];   
     $lastname_query = "SELECT lastname FROM users WHERE username = '$username'";
    
-    return getProfileData($lastname_query);
+    return TgetProfileData($lastname_query);
 
 
 }
 
-function getEmail($username)
+function TgetEmail($username)
 {
     $email_query = "SELECT email FROM users WHERE username = '$username'";
-    return getProfileData($email_query);
+    return TgetProfileData($email_query);
 
 
 }
 
-function getPhone($username)
+function TgetPhone($username)
 {
     
     $phone_query = "SELECT phone FROM users WHERE username = '$username'";
    
-    return getProfileData($phone_query);
+    return TgetProfileData($phone_query);
 
 }
-function getNumberOfSentMessage($username)
+function TgetNumberOfSentMessage($username)
 {
     
     $sent_query = "SELECT count(*) FROM messages WHERE mfrom = '$username'";
    
-    return getProfileData($sent_query);
+    return TgetProfileData($sent_query);
 
 }
 
-function getNumberOfReceiveMessage($username)
+function TgetNumberOfReceiveMessage($username)
 {
     
     $receive_query = "SELECT count(*) FROM messages WHERE mto = '$username'";
    
-    return getProfileData($receive_query);
+    return TgetProfileData($receive_query);
 
 }
 
-function createProfile()
+function TcreateProfile()
 {
        $username = $_COOKIE['User'];
-       $firstname = getFirstName($username);
-       $lastname = getLastName($username);
-       $email = getEmail($username);
-       $phone = getPhone($username);
-       $numberSentMessage = getNumberOfSentMessage($username);
-       $numberReceivedMessage = getNumberOfReceiveMessage($username);
+       $firstname = TgetFirstName($username);
+       $lastname = TgetLastName($username);
+       $email = TgetEmail($username);
+       $phone = TgetPhone($username);
+       $numberSentMessage = TgetNumberOfSentMessage($username);
+       $numberReceivedMessage = TgetNumberOfReceiveMessage($username);
 
         echo "<section class = \"sec2\">\n";
 
@@ -124,7 +124,7 @@ function createProfile()
 
 
 }
-createProfile();
+TcreateProfile();
 
 ?>
 

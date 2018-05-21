@@ -1,24 +1,7 @@
 <?php
 
 // Need to create multiple versions for this. The email formatting will require a new version, that accepts '@' and '.'.
-function sanitise($input)
-{
-    $input = trim($input);
-    $input = stripslashes($input);
-    $input = htmlspecialchars($input);
-    return $input;
-}
-
-function redir($message, $location)
-{
-    echo '<script language="javascript">';
-
-    echo 'alert("'.$message.'")';
-
-    echo '</script>';
-
-    echo "<script>document.location='$location'</script>";
-}
+// include 'create-user.php';
 
 function passstrengthcheck($password, &$strong)
 {

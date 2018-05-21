@@ -18,7 +18,9 @@
 
 <body>
 
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+
+ ?>
 
 
 <header>
@@ -27,15 +29,6 @@
 <p><a href="search-listings.php">Search for specific listings?</a> </p>
 <?php 
 
-function connection()
-    {
-       require("settings.php");
-       $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-       return $conn; 
-    }
-
-function viewListing()
-{
   require("settings.php");
    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$conn)
@@ -103,23 +96,25 @@ function viewListing()
                 echo "</div>\n";
 
 
-               echo "</section>\n";
-
-
-           
+               echo "</section>\n";    
             }
-            
+         
             mysqli_free_result($result);
-
-
     }
 
 mysqli_close($conn);
 }
-}
 
-viewListing();
 
+//function viewListing()
+//{
+ // echo 'sad';
+//}
+
+//viewListing();
+/*
+
+*/
 
  ?>
   

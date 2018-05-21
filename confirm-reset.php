@@ -3,24 +3,7 @@
 // Note: Function is expected to trim anything that isn't alphanumeric.
 // Keep it simple. Does limit passwords, but security isn't the most important thing at the moment.
 // Can be changed if we switch the DB to using some form of hashing for passwords.
-function sanitise($input)
-{
-    $input = trim($input);
-    $input = stripslashes($input);
-    $input = htmlspecialchars($input);
-    return $input;
-}
-
-function redir($message, $location)
-{
-    echo '<script language="javascript">';
-
-    echo 'alert("'.$message.'")';
-
-    echo '</script>';
-
-    echo "<script>document.location='$location'</script>";
-}
+include 'create-user.php';
 
 function runquery($query)
 {

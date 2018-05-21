@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 include_once("/builds/maxcb97/exercise-app/my-profile.php");
+include_once ("/builds/maxcb97/exercise-app/user-profile.php");
 
 class MyProfileTest extends PHPUnit\Framework\TestCase
 {
@@ -33,7 +34,7 @@ class MyProfileTest extends PHPUnit\Framework\TestCase
 
     public function testGetEmail()
     {
-        $test = getEmail("helen");
+        $test = TgetEmail("helen");
         $expected = "myhiep2910@yahoo.com";
         $this->assertEquals($expected, $test); 
         
@@ -41,8 +42,8 @@ class MyProfileTest extends PHPUnit\Framework\TestCase
 
     public function testGetPhone()
     {
-        $test = getPhone("helen");
-        $expected = "0422111111";
+        $test = TgetPhone("helen");
+        $expected = 0422111111;
         $this->assertEquals($expected, $test); 
         
     }
