@@ -1,7 +1,8 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require "../my-profile.php";
+include_once("/builds/maxcb97/exercise-app/my-profile.php");
+include_once ("/builds/maxcb97/exercise-app/user-profile.php");
 
 class UserProfileTest extends PHPUnit\Framework\TestCase
 {
@@ -33,7 +34,7 @@ class UserProfileTest extends PHPUnit\Framework\TestCase
 
     public function testGetGender()
     {
-        $test = getEmail("helen");
+        $test = TgetEmail("helen");
         $expected = "myhiep2910@yahoo.com";
         $this->assertEquals($expected, $test); 
         
@@ -41,8 +42,8 @@ class UserProfileTest extends PHPUnit\Framework\TestCase
 
     public function testGetAge()
     {
-        $test = getPhone("helen");
-        $expected = "0422111111";
+        $test = TgetPhone("helen");
+        $expected = "18-25";
         $this->assertEquals($expected, $test); 
         
     }

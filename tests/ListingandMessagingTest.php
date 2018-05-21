@@ -1,10 +1,10 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require "../load-listings.php";
-require "../view-listings.php";
-require "../create-message.php";
-require "../view-messages.php";
+include_once("/builds/maxcb97/exercise-app/load-listings.php");
+include_once("/builds/maxcb97/exercise-app/view-listings.php");
+include_once("/builds/maxcb97/exercise-app/create-message.php");
+include_once("/builds/maxcb97/exercise-app/view-messages.php");
 
 
 class TestListingAndMessaging extends PHPUnit\Framework\TestCase
@@ -20,14 +20,14 @@ class TestListingAndMessaging extends PHPUnit\Framework\TestCase
 
      public function testConnection()
     {
-        $result = connection();
+        $result = connection1();
         $this->assertNotNull($result, "connection failed");
    }
    
    public function testInsertInputToListingTable()
    {
     $result = insertInputToListingTable("running","good","pascoe_vale", "running around the park", "test", "male", "18-25");
-    $this->assertNotNull($result, "can not load data to listng table");
+    $this->assertNotNull($result);
    }
 
 
@@ -35,33 +35,33 @@ class TestListingAndMessaging extends PHPUnit\Framework\TestCase
    public function testCreateMessageTable()
    {
     $result = createMessageTable("test","test1","shuayb", "2345566", "105");
-    $this->assertNotNull($result, "can not load data to message table");
+    $this->assertNotNull($result);
    }
 
     public function testGetMessage()
     {
-        $conn = connection();
+        $conn = connection1();
         $result = getMessages($conn, "test");
         $this->assertNotNull($result, "can not get messages for user 'test'");
    }
 
    public function testUpdateMessage() 
    {
-        $conn = connection();
+        $conn = connection1();
         $result = updateMessage($conn, '48', "accepted");
         $this->assertNotNull($result, "can not update status of this message");
     
     }
     public function testGetMessageQuery()
     {
-        $conn = connection();
+        $conn = connection1();
         $result = getMessages($conn, "test");
         $this->assertEquals(mysqli_query($conn, "select * from messages m, exerciseDetails e where m.postnumber = e.postNumber and (m.mfrom = 'test' or m.mto = 'test')"), $result);
     }
 
     public function testUpdateMessageQuery()
     {
-        $conn = connection();
+        $conn = connection1();
         $result = updateMessage($conn, '48', "accepted");
         $this->assertEquals(mysqli_query($conn, "update messages set status = 'accepted' where messageId = 48"), $result);
     }
