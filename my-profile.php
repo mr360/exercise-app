@@ -98,7 +98,7 @@ function TgetNumberOfReceiveMessage($username)
 
 }
 
-function createProfile()
+function TcreateProfile()
 {
        $username = $_COOKIE['User'];
        $firstname = TgetFirstName($username);
