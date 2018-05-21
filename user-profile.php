@@ -71,7 +71,7 @@ function getLastName($username)
 
 }
 
-function getGender($postnumber)
+function LgetGender($postnumber)
 {
     $gender_query = "SELECT Gender FROM exerciseDetails WHERE postnumber = '$postnumber'";
     return getProfileData($gender_query);
@@ -79,7 +79,7 @@ function getGender($postnumber)
 
 }
 
-function getAge($postnumber)
+function LgetAge($postnumber)
 {
     
     $age_query = "SELECT Age FROM exerciseDetails WHERE postnumber = '$postnumber'";
@@ -113,8 +113,8 @@ function createProfile()
        $username = getUserName($postnumber);
        $firstname = getFirstName($username);
        $lastname = getLastName($username);
-       $gender = getGender($postnumber);
-       $age = getAge($postnumber);
+       $gender = LgetGender($postnumber);
+       $age = LgetAge($postnumber);
         $numberSentMessage = getNumberOfSentMessage($username);
        $numberReceivedMessage = getNumberOfReceiveMessage($username);
 
